@@ -1,3 +1,9 @@
+from collections import deque
+
+def bfs(numbers, target):
+    queue = deque([0,0])
+    print(queue)
+
 def dfs(numbers, target, snum, idx):
     global cnt
     
