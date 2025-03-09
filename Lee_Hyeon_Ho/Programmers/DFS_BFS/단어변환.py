@@ -32,8 +32,6 @@ def solution1(begin, target, words):
     
     return 0
 
-
-from collections import deque
 def check_word(begin, visited, words, queue, cnt):
     global n
     k = 0
