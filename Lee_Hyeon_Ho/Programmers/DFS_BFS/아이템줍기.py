@@ -39,8 +39,6 @@ def solution(rectangle, characterX, characterY, itemX, itemY):
 
     return 0
 
-
-
 # 틀린 방법, 해당 방식은 내부로 삽입되는 경로 또한 포함된다.
 
 # from collections import deque
