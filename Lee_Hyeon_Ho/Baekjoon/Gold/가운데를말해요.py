@@ -1,44 +1,38 @@
 import heapq
+import sys
 
-max_heap = []
 min_heap = []
-N = int(input())
+max_heap = []
+# arr = []
+N = int(sys.stdin.readline())
+heapq.heappush(max_heap, int(input()) * -1)
+print(-max_heap[0])
+# arr.append(-max_heap[0])
 
-for i in range(N):
-    # heapq.heappush(max_heap, int(input()) * -1)
+for i in range(1, N):
     
-    # if min_heap and max_heap[0] * -1 > min_heap[0]:
-    #     heapq.heappush(min_heap, heapq.heappop(max_heap) * -1)
-        
-    # ##########################################################################################
-    
-    # if len(max_heap) > len(min_heap) + 1:
-    #     heapq.heappush(min_heap, heapq.heappop(max_heap) * -1)
-    # elif len(max_heap) < len(min_heap):
-    #     heapq.heappush(max_heap, heapq.heappop(min_heap) * -1)
-    # # print(f"max_heap : {max_heap}")
-    # # print(f"min_heap : {min_heap}")
-    # print(max_heap[0] * -1)
-    x = int(input())
-    
-    if max_heap == []:
-        heapq.heappush(max_heap, x * -1)
-        
-    else:
-        # 현재 담긴 숫자가 홀수개인 경우
-        if i%2 != 0:
-            if max_heap[0] * -1 <= x:
-                heapq.heappush(max_heap, x * -1)
-                heapq.heappush(min_heap, heapq.heappop(max_heap) * -1)
-            else:
-                heapq.heappush(min_heap, x)
-        else:
-            if max_heap[0] * -1 <= x:
-                heapq.heappush(max_heap, x * -1)
-            else:
-                heapq.heappush(min_heap, x)
-                heapq.heappush(max_heap, heapq.heappop(min_heap) * -1)
+    x = int(sys.stdin.readline())
+    # print(f"현재 담긴 개수 : {i}")
+    # print(f"작업 전 상태")
     # print(f"max_heap : {max_heap}")
     # print(f"min_heap : {min_heap}")
-    print(max_heap[0] * -1)
-    
+    # 현재 담긴 개수가 홀수인 경우
+    if i%2 != 0:
+        if -max_heap[0] <= x:
+            heapq.heappush(min_heap, x)
+        else:
+            heapq.heappush(max_heap, -x)
+            heapq.heappush(min_heap, heapq.heappop(max_heap) * -1)
+            
+    # 현재 담긴 개수가 짝수인 경우
+    else:
+        if -max_heap[0] <= x:
+            heapq.heappush(min_heap, x)
+            heapq.heappush(max_heap, heapq.heappop(min_heap) * -1)
+        else:
+            heapq.heappush(max_heap, -x)
+    # print(f"max_heap : {max_heap}")
+    # print(f"min_heap : {min_heap}")
+    print(-max_heap[0])
+    # arr.append(-max_heap[0])
+# print(arr)
