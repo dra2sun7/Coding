@@ -1,3 +1,2 @@
 
-for x in arr:
-    print(x)
+        arr, idx, ans
