@@ -49,5 +49,3 @@ for _ in range(T):
             if idx[x] < idx[answer]:
                 answer = x
     print(answer)
-    print(answer_size)
-        
