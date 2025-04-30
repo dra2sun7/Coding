@@ -26,10 +26,10 @@ def bfs():
     while queue:
         # print(queue)
         x = queue.popleft()
-        if visited[x-1] == False:
-            visited[x-1] = True
-            answer.append(x)
-            for y in graph[x-1]:
+        answer.append(x)
+        for y in graph[x-1]:
+            if not visited[y-1]:
+                visited[y-1] = True
                 queue.append(y)
 
 dfs(V)
