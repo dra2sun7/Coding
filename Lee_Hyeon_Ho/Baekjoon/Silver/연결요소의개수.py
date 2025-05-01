@@ -45,11 +45,10 @@ for i in range(N):
         stack = [i]
         while stack:
             idx = stack.pop()
-            visited[idx] = True
-            
+
             for x in arr[idx]:
                 if not visited[x]:
+                    visited[x] = True
                     stack.append(x)
             
 print(cnt)
-    
